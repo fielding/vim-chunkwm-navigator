@@ -1,3 +1,7 @@
+if exists("g:loaded_chunkwm_navigator") || &cp
+  finish
+endif
+let g:loaded_chunkwm_navigator = 1
 function! s:UseChunkwmNavigatorMappings()
   return !get(g:, 'chunkwm_navigator_no_mappings', 0)
 endfunction
