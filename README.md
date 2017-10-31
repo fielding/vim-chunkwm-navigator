@@ -1,14 +1,22 @@
 Vim Chunkwm Navigator
-
 ==================
 
-This plugin will allow you to navigate seamlessly between Vim/Neovim and native macos
-windows using a consistent set of hotkeys. The secret sauce that allows this
-to work is the combination of [Åsmund Vikane][]'s [chunkwm][], a tiling window manager,
-and a hotkey daemon(e.g. [khd][] or [skhd][])
+This plugin will allow you to navigate seamlessly between Vim/Neovim splits and
+native mac os windows managed by chunkwm using a consistent set of hotkeys. The
+secret sauce that allows this to work is the combination of [Åsmund Vikane][]'s
+[chunkwm][], a tiling window manager, and a hotkey daemon(e.g. [khd][] or
+[skhd][]).
 
-**IMPORTANT: This requires [chunkwm][], or similar window manager and your hacking on supplied scripts, and a third party hotkey daemon(e.g. [khd][] or [skhd][])**
+This is **oh so heavily** based off [Chris Toomey][]'s [vim-tmux-navigator][].
+For educational purposes I have structured the code like [vim-tmux-navigator][]
+due to my lack of vimscript experience. I have taken the time to implement
+everything as if it were from scratch in a progressive manner (as the need
+presented itself) for my educational benefit. In the end, I hope to have
+scratched my own itch, while deepening my vim knownledge.
 
+**IMPORTANT: This requires [chunkwm][], or similar window manager and your
+hacking on supplied scripts, and a third party hotkey daemon(e.g. [khd][] or
+[skhd][])**
 
 Usage
 -----
