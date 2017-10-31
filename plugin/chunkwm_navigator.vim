@@ -5,22 +5,26 @@ let g:loaded_chunkwm_navigator = 1
 
 set title
 
+let s:chunkwm_window_last = 0
+augroup chunkwm_navigator
+  au!
+  autocmd WinEnter * let s:chunkwm_window_last = 0
+augroup END
+
+
 function! s:UseChunkwmNavigatorMappings()
   return !get(g:, 'chunkwm_navigator_no_mappings', 0)
 endfunction
 
 function! s:SwitchWindow(key)
-  let oldwindow = winnr()
-  if a:key=='l'
-    wincmd l
-  elseif a:key=='k'
-    wincmd k
-  elseif a:key=='j'
-    wincmd j
-  elseif a:key=='h'
-    wincmd h
+  let nr = winnr()
+  let chunkwm_window_last = s:chunkwm_window_last
+
+  if !chunkwm_window_last
+    exec 'wincmd ' . a:key
   endif
-  if oldwindow==winnr()
+
+  if chunkwm_window_last || nr == winnr()
       if a:key=='l'
         let cmd = 'chunkc tiling::window --focus east'
       elseif a:key=='k'
@@ -31,6 +35,9 @@ function! s:SwitchWindow(key)
         let cmd = 'chunkc tiling::window --focus west'
       endif
       silent call system(cmd)
+      let chunkwm_window_last = 1
+  else
+    let chunkwm_window_last = 0
   endif
 endfunction
 
