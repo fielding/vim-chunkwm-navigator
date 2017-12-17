@@ -7,6 +7,13 @@ let g:loaded_chunkwm_navigator = 1
 " Other options are to detect window in a di
 set title
 
+let s:key_to_direction_map = {
+      \ 'h': 'west',
+      \ 'j': 'south',
+      \ 'k': 'north',
+      \ 'l': 'east'
+\ }
+
 if !exists('g:chunkwm_navigator_save_on_switch')
   let g:chunkwm_navigator_save_on_switch = 0
 endif
@@ -31,17 +38,6 @@ function! s:SwitchWindow(key)
   endif
 
   if chunkwm_window_last || nr == winnr()
-      if a:key=='l'
-        let cmd = 'chunkc tiling::window --focus east'
-      elseif a:key=='k'
-        let cmd = 'chunkc tiling::window --focus north'
-      elseif a:key=='j'
-        let cmd = 'chunkc tiling::window --focus south'
-      elseif a:key=='h'
-        let cmd = 'chunkc tiling::window --focus west'
-      endif
-      silent call system(cmd)
-      let chunkwm_window_last = 1
     if g:chunkwm_navigator_save_on_switch == 1
       try
         update " save the active buffer. See :help update
@@ -53,6 +49,9 @@ function! s:SwitchWindow(key)
       catch /^Vim\%((\a\+)\)\=:E141/ " catches the no file name error
       endtry
     endif
+    let cmd = 'chunkc tiling::window --focus ' . get(s:key_to_direction_map, a:key, '')
+    silent call system(cmd)
+    let chunkwm_window_last = 1
   else
     let chunkwm_window_last = 0
   endif
