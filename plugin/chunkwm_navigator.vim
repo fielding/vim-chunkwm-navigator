@@ -3,6 +3,8 @@ if exists("g:loaded_chunkwm_navigator") || &cp
 endif
 let g:loaded_chunkwm_navigator = 1
 
+" Determine if this is really the way to handle this? 
+" Other options are to detect window in a di
 set title
 
 if !exists('g:chunkwm_navigator_save_on_switch')
