@@ -5,6 +5,10 @@ let g:loaded_chunkwm_navigator = 1
 
 set title
 
+if !exists('g:chunkwm_navigator_save_on_switch')
+  let g:chunkwm_navigator_save_on_switch = 0
+endif
+
 let s:chunkwm_window_last = 0
 augroup chunkwm_navigator
   au!
@@ -36,6 +40,17 @@ function! s:SwitchWindow(key)
       endif
       silent call system(cmd)
       let chunkwm_window_last = 1
+    if g:chunkwm_navigator_save_on_switch == 1
+      try
+        update " save the active buffer. See :help update
+      catch /^Vim\%((\a\+)\)\=:E32/ " catches the no file name error
+      endtry
+    elseif g:chunkwm_navigator_save_on_switch == 2
+      try
+        wall " save all the buffers. See :help wall
+      catch /^Vim\%((\a\+)\)\=:E141/ " catches the no file name error
+      endtry
+    endif
   else
     let chunkwm_window_last = 0
   endif
