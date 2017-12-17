@@ -56,6 +56,18 @@ Then run
 :PlugInstall
 ```
 
+### readline
+
+`.inputrc`
+
+```
+# allow chunkwm to pass through ctrl-h/j/k/l so that vim can switch panes without triggering shell escape characters
+'"\C-l":'
+'"\C-h":'
+'"\C-j":'
+'"\C-k":'
+```
+
 ### Hotkey Daemon or other third party key mapping method
 
 To configure the chunkw side of this customization we must use a third party
@@ -77,12 +89,16 @@ ctrl - k ->         : if [[ "$(chunkc tiling::query --window name)" != *"vim"* ]
 TODO
 ----
 
+- [ ] Add `previous` to the list of binds/focus change options
 - [ ] Correct how it handles the wrapping around from window back in to vim/nvim  
 - [ ] README: Finish!  
   - [ ] add confguraton section  
   - [ ] add khd configuration
   - [ ] add tidbit about terminal title
 
+
+[Chris Toomey]: https://github.com/christoomey
+[vim-tmux-navigator]: https://github.com/christoomey/vim-tmux-navigator
 [Åsmund Vikane]: https://github.com/koekeishiya
 [chunkwm]: https://github.com/koekeishiya/chunkwm
 [khd]:https://github.com/koekeishiya/khd
