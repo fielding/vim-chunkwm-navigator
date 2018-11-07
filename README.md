@@ -47,7 +47,7 @@ install the plugin:
 Add the following line to your `.vimrc` or `init.vim` file
 
 ``` vim
-Plug 'justfielding/vim-chunkwm-navigator'
+Plug 'fielding/vim-chunkwm-navigator'
 ```
 
 Then run
@@ -71,7 +71,7 @@ Then run
 ### Hotkey Daemon or other third party key mapping method
 
 To configure the chunkw side of this customization we must use a third party
-hotkey daemon(e.g. [khd][] or [skhd][]). I will try include configurations for 
+hotkey daemon(e.g. [khd][] or [skhd][]). I will try include configurations for
 any submitted by others.
 
 #### skhd
@@ -90,9 +90,9 @@ TODO
 ----
 
 - [ ] Add `previous` to the list of binds/focus change options
-- [ ] Correct how it handles the wrapping around from window back in to vim/nvim  
-- [ ] README: Finish!  
-  - [ ] add confguraton section  
+- [ ] Correct how it handles the wrapping around from window back in to vim/nvim
+- [ ] README: Finish!
+  - [ ] add confguraton section
   - [ ] add khd configuration
   - [ ] add tidbit about terminal title
 
@@ -102,5 +102,5 @@ TODO
 [Åsmund Vikane]: https://github.com/koekeishiya
 [chunkwm]: https://github.com/koekeishiya/chunkwm
 [khd]:https://github.com/koekeishiya/khd
-[skhd]: https://github.com/koekeishiya/skhd 
+[skhd]: https://github.com/koekeishiya/skhd
 [vim-plug]: https://github.com/junegunn/vim-plug
