@@ -93,7 +93,7 @@ TODO
 - [ ] Correct how it handles the wrapping around from window back in to vim/nvim
 - [ ] README: Finish!
   - [ ] add confguraton section
-  - [ ] add khd configuration
+  - [ ] ~~add khd configuration~~
   - [ ] add tidbit about terminal title
 
 
